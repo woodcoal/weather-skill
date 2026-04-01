@@ -15,6 +15,10 @@ from html.parser import HTMLParser
 from datetime import datetime
 
 
+# Windows 下强制 UTF-8 输出编码
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8')
+
 class WeatherHTMLParser(HTMLParser):
     """解析天气页面HTML，提取7天预报和生活指数数据。"""
 
